@@ -1,0 +1,73 @@
+
+<div class="container" style="margin-top:30px">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Some Links</h3>
+      <p>Lorem ipsum dolor sit ame.</p>
+
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+
+
+      </ul>
+      <hr class="d-sm-none">
+    </div>
+    <div class="col-sm-8">
+      <label for="site-search">Search the site:</label>
+      <input type="search" id="site-search" name="q"
+             aria-label="Search through site content">
+      <button>Search</button>
+      <button class="favorite styled" routerLink="/vinh/create" type="button"> create</button>
+
+      <table style="border: 2px">
+        <caption style="text-align: center">Making the Web Beautiful!</caption>
+        <thead>
+        <tr>
+          <th colspan="5" style="text-align: center">User manager</th>
+
+
+          <th></th>
+        </tr>
+        <tr style="background-color: steelblue">
+          <th style="text-align: center">id</th>
+          <th style="text-align: center">name</th>
+          <th style="text-align: center">price</th>
+          <th style="text-align: center">edit</th>
+          <th style="text-align: center">delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let vinh of books  ">
+
+          <td>{{vinh.id}}</td>
+
+          <td><a routerLink="/vinh/detail/{{vinh.id}}" >{{vinh.title}}</a></td>
+
+          <td>{{vinh.author}}</td>
+
+          <td>
+            <button mat-stroked-button color="warn" class="btn btn-warning" [routerLink]="['/vinh/edit/',vinh.id]">edit</button>
+          </td>
+
+          <td>
+            <button type="button" (click)="delete(vinh.id)"  class="btn"><i class="material-icons"
+                                                                            style="color: firebrick">delete_forever</i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
